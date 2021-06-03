@@ -11,11 +11,6 @@ public class Constants {
     //final public static String WEB_SERVICE_ADDRESS = "https://www.wunderground.com/cgi-bin/findweather/getForecast";
 
     final public static String UNITS = "metric";
-    final public static String TEMPERATURE = "temperature";
-    final public static String WIND_SPEED = "wind_speed";
-    final public static String CONDITION = "condition";
-    final public static String PRESSURE = "pressure";
-    final public static String HUMIDITY = "humidity";
     final public static String ALL = "all";
     final public static String RATE = "rate";
 

@@ -58,7 +58,7 @@ public class CommunicationThread extends Thread {
                 Log.e(Constants.TAG, "[COMMUNICATION THREAD] Buffered Reader / Print Writer are null!");
                 return;
             }
-            Log.i(Constants.TAG, "[COMMUNICATION THREAD] Waiting for parameters from client (city / information type!");
+            Log.i(Constants.TAG, "[COMMUNICATION THREAD] Waiting for parameters from client");
             String tip = bufferedReader.readLine();
             String informationType = bufferedReader.readLine();
             if (tip == null || tip.isEmpty() || informationType == null || informationType.isEmpty()) {
@@ -124,20 +124,10 @@ public class CommunicationThread extends Thread {
                 } else {
                     JSONObject content = new JSONObject(pageSourceCode);
 
-                    JSONArray weatherArray = content.getJSONArray(Constants.WEATHER);
-                    JSONObject weather;
-                    String condition = "";
-                    for (int i = 0; i < weatherArray.length(); i++) {
-                        weather = weatherArray.getJSONObject(i);
-                        condition += weather.getString(Constants.MAIN) + " : " + weather.getString(Constants.DESCRIPTION);
-
-                        if (i < weatherArray.length() - 1) {
-                            condition += ";";
-                        }
-                    }
-
-                    JSONObject main = content.getJSONObject(Constants.MAIN);
-                    String rate = main.getString(Constants.RATE);
+                    JSONObject bpi = content.getJSONObject("bpi");
+                    JSONObject euro = content.getJSONObject("EUR");
+                    JSONObject usd = content.getJSONObject("USD");
+                    String rate = euro.getString(Constants.RATE);
 
                     valutaInformation = new ValutaInformation(
                             rate
@@ -146,7 +136,7 @@ public class CommunicationThread extends Thread {
                 }
             }
             if (valutaInformation == null) {
-                Log.e(Constants.TAG, "[COMMUNICATION THREAD] Weather Forecast Information is null!");
+                Log.e(Constants.TAG, "[COMMUNICATION THREAD] Valuta Information is null!");
                 return;
             }
             String result = null;

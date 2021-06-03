@@ -79,7 +79,7 @@ public class PracticalTest02MainActivity extends AppCompatActivity {
             valutaTextView.setText(Constants.EMPTY_STRING);
 
             clientThread = new ClientThread(
-                    clientAddress, Integer.parseInt(clientPort), valutaEditText.getText().toString(), valutaTextView
+                    clientAddress, Integer.parseInt(clientPort), valuta, valutaTextView
             );
             clientThread.start();
         }
