@@ -6,4 +6,5 @@
     <string name="client">client</string>
     <string name="valuta">valuta</string>
     <string name="get_valuta">valuta</string>
+    <string name="client_port">client_port</string>
 </resources>
